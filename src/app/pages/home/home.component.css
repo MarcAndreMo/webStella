@@ -1,0 +1,38 @@
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px;
+}
+
+.box {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background: rgb(223, 204, 181);
+    border-radius: 20px;
+    width: 500px; 
+    height: 500px; 
+
+}
+
+
+.custom-button {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    font-family: 'Arial', sans-serif; /* Fuente del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background 0.3s ease; /* Transición suave */
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+

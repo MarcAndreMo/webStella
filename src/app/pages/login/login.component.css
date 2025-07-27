@@ -1,0 +1,156 @@
+.login-container {
+    background-color: burlywood;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.custom-card {
+    background-color: white !important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Shabnam, sans-serif;
+}
+
+body {
+    background-color: #f5e58b;
+    background-image: linear-gradient(160deg, burlywood 0% , #d8b621 100%);
+}
+
+.flex {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 310px;
+    height: 400px;
+    position: relative;
+    padding: 65px 40px 20px 40px;
+    background-color: white;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0 , 0 , 0 , 0.5) , -10px -10px 20px rgba(0 , 0 , 0 , 0.36);
+}
+
+.user-logo {
+    background-image: url("https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur-rouge.png");
+    background-size: cover;
+    background-color: white;
+    position: absolute;
+    left: 110px;
+    top: -40px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.inputs {
+    margin: 10px 0;
+}
+
+.inputs input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    color:black;
+    border-bottom: 0.4px solid rgb(253, 143, 0);
+    padding-top: 10px;
+}
+
+
+form input::-webkit-input-placeholder {
+    color: black;
+    font-family:  'Lucida Sans Unicode',sans-serif;
+
+}
+
+form input:focus::-webkit-input-placeholder , input:valid::-webkit-input-placeholder {
+    transform: translateY(-20px);    
+    color:burlywood;
+    font-size: 13px;
+    transition-duration: .6s;
+}
+
+.box {
+    margin-bottom: 30px;
+}
+
+.forget-pass {
+    position: absolute;
+    right: 40px;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+button {
+    background-color: burlywood;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+    font-family:  'Lucida Sans Unicode',sans-serif;
+
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+hr {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.2px;
+    background-color: #fff;
+    margin-top: 40px;
+    opacity: .2;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+a span:hover {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.signup {
+    position: relative;
+    top: 65px;
+    font-size: 14px;
+    text-align: center;
+}

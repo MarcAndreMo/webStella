@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+
+  <body>
+ 
+    <div class="container">
+        <div class="box">
+            <div class="mb-4 p-8 flex items-center justify-center">
+                <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+                    <ng-template #header>
+                        <img alt="Card" src="assets/agenda.jpg" style="width: 400px; height: 200px;" />
+                    </ng-template>
+
+                    <ng-template #title> 
+                        <h1>AGENDA DE CONSULTAS </h1>
+                    </ng-template>
+
+                    <ng-template #footer>
+
+                        <div class="flex gap-4 mt-1">
+                            <p-button (onClick)="onAgenda()" label="ACCEDER"  [rounded]="true" severity="info"/>
+
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+        <div class="box">
+            <div class="mb-4 p-8 flex items-center justify-center">
+                <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+                    <ng-template #header>
+                        <img alt="Card" src="assets/historial.jpg" style="width: 400px; height: 200px;" />
+                    </ng-template>
+
+                    <ng-template #title> 
+                        <h1>HISTORIAL DEL PACIENTE</h1>
+                    </ng-template>
+
+                    <ng-template #footer>
+
+                        <div class="flex gap-4 mt-1">
+                            <p-button (onClick)="onConsulta()" label="ACCEDER" [rounded]="true" severity="info"/>
+
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="mb-4 p-8 flex items-center justify-center">
+                <p-card [style]="{ width: '24rem', overflow: 'hidden' }">
+                    <ng-template #header>
+                        <img alt="Card" src="assets/chatbot.jpg" style="width: 385px; height: 200px;" />
+                    </ng-template>
+
+                    <ng-template #title> 
+                        <h1>ASISTENTE VIRTUAL</h1>
+                    </ng-template>
+
+                    <ng-template #footer>
+
+                        <div class="flex gap-4 mt-1">
+                            <p-button (onClick)="onAsistente()" label="ACCEDER"  [rounded]="true" severity="info"/>
+
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+  </body>
+</html>

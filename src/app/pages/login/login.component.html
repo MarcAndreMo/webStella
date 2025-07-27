@@ -1,0 +1,28 @@
+
+<html lang="en">
+
+<app-header></app-header>
+
+<body>
+    <div class="flex">
+            <div class="container">
+        <div class="user-logo"></div>
+        <form [formGroup]="loginForm" (submit)="onLogin()">
+                <h1>Login</h1>
+                <div class="inputs">
+                    <input type="text" id="name" formControlName="name"  placeholder="Username" required>
+                </div>
+                <div class="inputs box">
+                    <input type="password" id="price" formControlName="price"   placeholder="password" required>
+                </div>
+                    <button class="btn-login" >Login</button>
+               
+
+        </form>
+
+            </div>
+    
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0px 10px;
+}
+
+.logo{
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-name{
+    font-size: 24px;
+    font-weight: bold;
+    color: burlywood;
+    vertical-align: +20px;
+    font-family:  'Lucida Sans Unicode',sans-serif;
+    font-style: italic;
+}

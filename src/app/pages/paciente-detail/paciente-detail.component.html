@@ -1,0 +1,355 @@
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template #start>
+            <svg width="33" height="35" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.1934 0V0V0L0.0391235 5.38288L2.35052 25.3417L15.1934 32.427V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1934 0Z" fill="var(--primary-color)" />
+                <mask id="mask0_1_36" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="33">
+                    <path d="M15.1934 0V0V0L0.0391235 5.38288L2.35052 25.3417L15.1934 32.427V32.427V32.427L28.0364 25.3417L30.3478 5.38288L15.1934 0Z" fill="var(--primary-color-text)" />
+                </mask>
+                    <image href="assets/spa_ini.jpg" x="-1" y="0" width="35" height="35"/>
+                    <path d="M19.6399 15.3776L18.1861 15.0547L19.3169 16.6695V21.6755L23.1938 18.4458V12.9554L21.4169 13.6013L19.6399 15.3776Z" fill="var(--ground-background)"/>
+                    <path d="M10.5936 15.3776L12.0474 15.0547L10.9166 16.6695V21.6755L7.03966 18.4458V12.9554L8.81661 13.6013L10.5936 15.3776Z" fill="var(--ground-background)"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3853 16.9726L12.6739 15.0309L13.4793 15.5163H16.7008L17.5061 15.0309L18.7947 16.9726V24.254L17.8283 25.7103L16.7008 26.843H13.4793L12.3518 25.7103L11.3853 24.254V16.9726Z"
+                        fill="var(--ground-background)"/>
+                    <path d="M19.3168 24.7437L21.4168 22.6444V20.5451L19.3168 22.3214V24.7437Z" fill="var(--ground-background)" />
+                    <path d="M10.9166 24.7437L8.81662 22.6444V20.5451L10.9166 22.3214V24.7437Z" fill="var(--ground-background)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0167 5.68861L11.7244 8.7568L13.8244 14.8932H14.7936V5.68861H13.0167ZM15.4397 5.68861V14.8932H16.5706L18.5091 8.7568L17.2167 5.68861H15.4397Z"
+                        fill="var(--ground-background)"
+                    />
+                    <path d="M13.8244 14.8932L6.87813 12.3094L5.90888 8.27235L11.8859 8.7568L13.9859 14.8932H13.8244Z" fill="var(--ground-background)" />
+                    <path d="M16.5706 14.8932L23.5169 12.3094L24.4861 8.27235L18.3476 8.7568L16.4091 14.8932H16.5706Z" fill="var(--ground-background)"/>
+                    <path d="M18.8321 8.27235L22.2245 7.94938L19.9629 5.68861H17.7013L18.8321 8.27235Z" fill="var(--ground-background)"/>
+                    <path d="M11.4013 8.27235L8.00893 7.94938L10.2705 5.68861H12.5321L11.4013 8.27235Z" fill="var(--ground-background)"/>
+            </svg>
+        </ng-template>
+        <ng-template #item let-item let-root="root">
+            <a pRipple class="flex items-center p-menubar-item-link">
+                <span>{{ item.label }}</span>
+                <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" [value]="item.badge" />
+                <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+            </a>
+        </ng-template>
+        <ng-template #end>
+            <div class="flex items-center gap-2">
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>
+
+<div class="container">
+    <div class="campo" >
+        <div class="card flex justify-center">
+            <p-image src="../../../assets/login.jpg" alt="Image" width="250" />
+        </div>
+        <p-button
+            label="{{ edit ? 'Cancelar' : 'Editar' }}" 
+            icon="pi pi-pencil" 
+            (onClick)="edit ? edit = false : editar()"
+            class="mb-3"/>
+        <br />
+        <br />
+        <p-button label="Guardar" 
+            icon="pi pi-save" 
+            class="mb-3"
+            (onClick)="AgregarInfo()"/>
+        <h1>Paciente:</h1>
+        <h2>Información Básica</h2>       
+        <form *ngIf="edit" [formGroup]="addInfoBas" (ngSubmit)="AgregarInfo()">
+                <div class="col-12 md:col-6">
+                    <label for="nombre_completo"><strong>Nombre completo:</strong></label><br />
+                    <input id="nombre_completo" formControlName="nombre_completo" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="fecha_nacimiento"><strong>Fecha de nacimiento:</strong></label><br />
+                    <input id="fecha_nacimiento" formControlName="fecha_nacimiento" type="date" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="edad"><strong>Edad:</strong></label><br />
+                    <input id="edad" formControlName="edad" type="int" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="telefono"><strong>Teléfono:</strong></label><br />
+                    <input id="telefono" formControlName="telefono" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="direccion"><strong>Dirección:</strong></label><br />
+                    <input id="direccion" formControlName="direccion" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="correo"><strong>Correo electrónico:</strong></label><br />
+                    <input id="correo" formControlName="correo" type="email" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="genero"><strong>Sexo:</strong></label><br />
+                    <select id="genero" formControlName="genero" pInputText class="input-personalizado"  >
+                        <option value="">Seleccione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </div>
+        </form>
+        <div *ngIf="!edit">
+            <p><strong>Nombre completo:</strong></p>
+            <p>{{ paciente?.nombre_completo }}</p>
+            <p><strong>Fecha de nacimiento:</strong></p>
+            <p>{{paciente?.fecha_nacimiento}}</p>
+            <p><strong>Edad:</strong></p>
+            <p>{{paciente?.edad}}</p>
+            <p><strong>Teléfono:</strong></p>
+            <p>{{paciente?.telefono}}</p>
+            <p><strong>Dirección:</strong></p>
+            <p>{{paciente?.direccion}}</p>
+            <p><strong>Correo electrónico:</strong></p>
+            <p>{{paciente?.correo}}</p>
+            <p><strong>Sexo:</strong></p>
+            <p>{{paciente?.genero}}</p>
+        </div>
+        <h2>Información Médica</h2>
+         <form *ngIf="edit" [formGroup]="addInfoBas" (ngSubmit)="AgregarInfo()"> 
+                <div class="col-12 md:col-6">
+                    <label for="sangre"><strong>Tipo de Sangre</strong></label><br />
+                    <input id="sangre" formControlName="sangre" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="peso"><strong>Peso (kg):</strong></label><br />
+                    <input id="peso" formControlName="peso" type="number" pInputText class="input-personalizado"  />   
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="altura"><strong>Altura (cm):</strong></label><br />
+                    <input id="altura" formControlName="altura" type="number" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="alergias"><strong>Alergias:</strong></label><br />
+                    <input id="alergias" formControlName="alergias" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="enfermedades"><strong>Enfermedades:</strong></label><br />
+                    <input id="enfermedades" formControlName="enfermedades" type="text" pInputText class="input-personalizado"  />
+                </div>
+         </form>
+         <div *ngIf="!edit">
+            <p><strong>Tipo de Sangre:</strong></p>
+            <p>{{paciente?.sangre}}</p>
+            <p><strong>Peso:</strong></p>
+            <p>{{paciente?.peso}} kg</p> 
+            <p><strong>Altura:</strong></p>
+            <p>{{paciente?.altura}} cm</p>
+            <p><strong>Alergias:</strong></p>
+            <p>{{paciente?.alergias}}</p>
+            <p><strong>Enfermedades:</strong></p>
+            <p>{{paciente?.enfermedades}}</p>
+        </div>
+        <h2>Información de Contacto de Emergencia</h2>
+        <form *ngIf="edit" [formGroup]="addInfoBas" (ngSubmit)="AgregarInfo()">
+                <div class="col-12 md:col-6">
+                    <label for="contacto_emergencia"><strong>Nombre del contacto de Emergencia:</strong></label><br />
+                    <input id="contacto_emergencia" formControlName="contacto_emergencia" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="relacion"><strong>Relación con el contacto de Emergencia:</strong></label><br />
+                    <input id="relacion" formControlName="relacion" type="text" pInputText class="input-personalizado"  />
+                </div>
+                <div class="col-12 md:col-6">
+                    <label for="telefono_emergencia"><strong>Teléfono de Emergencia:</strong></label><br />
+                    <input id="telefono_emergencia" formControlName="telefono_emergencia" type="text" pInputText class="input-personalizado"  />
+                </div>  
+        </form>
+        <div *ngIf="!edit">
+            <p><strong>Nombre del contacto de Emergencia:</strong></p>
+            <p>{{paciente?.contacto_emergencia}}</p>
+            <p><strong>Relación con el contacto de Emergencia:</strong></p>
+            <p>{{paciente?.relacion}}</p>
+            <p><strong>Teléfono de Emergencia:</strong></p>
+            <p>{{paciente?.telefono_emergencia}}</p>    
+        </div>
+  </div>
+  <div class = "campo2">
+    <h2>Historial de consultas</h2>
+    <div class="card">
+        <p-table
+            [value]="citas"
+            [paginator]="true"
+            [rows]="5"
+            [rowsPerPageOptions]="[5, 10, 15]"
+            showGridlines
+            [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template #header>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-cita of citas let-i="rowIndex">
+                    <tr>
+                        <td>{{cita.nombre}}</td>
+                        <td>{{cita.fecha}}</td>
+                        <td>{{cita.hora}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+    </div>
+    <div class="card flex justify-center">
+         <h2>Historial de procedimientos</h2>
+        <p-button (click)="showDialog()" label="+ PROCEDIMIENTO" severity="info"/>
+        <p-dialog header="Procedimiento" [modal]="true" [(visible)]="visible"  [style]="{ width: '30rem', height: '40rem',  'font-size': '1.0rem'}">
+            <form [formGroup]="addTratamiento" (ngSubmit)="AgregarTratamiento()">
+                <div class="mb-4 flex items-center">
+                    <label for="tratamiento" class="label-negrita"> Tratamiento: </label>
+                    <div>
+                    <input pInputText id="tratamiento" formControlName="tratamiento" pInputText class="input-personalizado"  />
+                    </div>
+                </div>
+                <br>
+                <div class="mb-4 flex items-center">
+                    <label for="recomendaciones" class="label-negrita"> Recomendaciones: </label>
+                    <div>
+                    <input pInputText id="recomendaciones" formControlName="recomendaciones" pInputText class="input-personalizado" />
+                    </div>
+                </div>
+                <br>
+                <div class="mb-4 flex items-center">
+                    <label for="evaluacion" class="label-negrita"> Evaluacion: </label>
+                    <div>
+                    <input pInputText id="evaluacion" formControlName="evaluacion" pInputText class="input-personalizado" />
+                    </div>
+                </div>
+                <br>
+                <div class="mb-4 flex items-center">
+                    <label for="observaciones" class="label-negrita"> Observaciones: </label>
+                    <div>
+                    <input pInputText id="observaciones" formControlName="observaciones" pInputText class="input-personalizado" />
+                    </div>
+                </div>
+                <br>
+                <div class="flex justify-end gap-2">
+                    <p-button type="submit" label="Añadir" class="p-button-success" />
+                </div>
+            </form>
+        </p-dialog>
+    </div>
+    <div class="card">
+        <p-table
+            [value]="procedimientos"
+            showGridlines
+            dataKey="_id" editMode="row" stripedRows
+            [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template #header>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo de tratamiento</th>
+                        <th>Recomendaciones post-sesión</th>
+                        <th>Evolución o seguimiento</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-procedimiento of procedimientos let-editing="editing" let-i="rowIndex">
+                    <tr [pEditableRow]="procedimiento">
+                        <td>{{procedimiento.fecha}}</td>
+                        <td>
+                        <p-cellEditor>
+                            <ng-template #input>
+                                <input 
+                                    pInputText type="text"
+                                    [(ngModel)]="procedimiento.tratamiento" />                               
+                            </ng-template>
+                            <ng-template #output>
+                                {{procedimiento.tratamiento}}
+                            </ng-template>
+                        </p-cellEditor>
+                        </td>
+                        <td>
+                        <p-cellEditor>
+                            <ng-template #input>
+                                <input 
+                                    pInputText type="text"
+                                    [(ngModel)]="procedimiento.recomendaciones" />
+                            </ng-template>
+                            <ng-template #output>
+                                {{procedimiento.recomendaciones}}
+                            </ng-template>
+                        </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template #input>
+                                    <input 
+                                        pInputText type="text"
+                                        [(ngModel)]="procedimiento.evaluacion" />
+                                </ng-template>
+                                <ng-template #output>
+                                    {{procedimiento.evaluacion}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template #input>
+                                    <input 
+                                        pInputText type="text"
+                                        [(ngModel)]="procedimiento.observaciones" />
+                                </ng-template>
+                                <ng-template #output>
+                                    {{procedimiento.observaciones}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <div class="flex items-center justify-center gap-2">
+                                <button
+                                    *ngIf="!editing"
+                                    pButton
+                                    pRipple
+                                    type="button"
+                                    pInitEditableRow
+                                    icon="pi pi-pencil"
+                                    (click)="editarTratamiento(procedimiento)"
+                                    text
+                                    rounded
+                                    severity="secondary"
+                                ></button>
+                                <button
+                                    *ngIf="editing"
+                                    pButton
+                                    pRipple
+                                    type="button"
+                                    pSaveEditableRow
+                                    icon="pi pi-check"
+                                    (click)="guardarTratamiento(procedimiento)"
+                                    text
+                                    rounded
+                                    severity="secondary"
+                                ></button>
+                                <button
+                                    *ngIf="editing"
+                                    pButton
+                                    pRipple
+                                    type="button"
+                                    pCancelEditableRow
+                                    icon="pi pi-times"
+                                    (click)="cancelarEdicion(procedimiento,  i)"
+                                    text
+                                    rounded
+                                    severity="secondary"
+                                ></button>
+                            </div>
+                        </td>
+                        <td>
+                            <p-button icon="pi pi-trash" 
+                            severity="danger" 
+                            [rounded]="true" 
+                            [outlined]="true"  
+                            (click)="eliminarProcedimiento(procedimiento)"
+                            />
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+    </div>
+    </div>
+</div>
+
+
+
+  
